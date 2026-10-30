@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: digilearn-backend
+  datasource:
+    url: jdbc:h2:mem:digilearn;MODE=PostgreSQL;DB_CLOSE_DELAY=-1
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+  h2:
+    console:
+      enabled: false
+
+server:
+  port: 8080
+
+app:
+  security:
+    jwt-secret: ${DIGILEARN_JWT_SECRET:change-me-in-production-with-at-least-32-characters}
+    access-token-minutes: 15
+    refresh-token-days: 7
+  certificate:
+    public-verification-url: ${DIGILEARN_CERTIFICATE_URL:http://localhost:8080/api/certificates/verify}
+  retention:
+    personal-data-days: ${DIGILEARN_PERSONAL_DATA_RETENTION_DAYS:1825}

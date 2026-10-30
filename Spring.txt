@@ -1,0 +1,15 @@
+🛡️ Architecture Backend (Spring Boot)Le backend sera structuré selon le modèle en couches standard (Controller-Service-Repository) en respectant une approche modulaire basée sur les domaines de l'application.1. Structure des Packagestextcom.odc.digilearn
+├── config             // Configurations (Security, Mail, MVC, Swagger)
+├── security           // JWT, UserDetailsService, BCrypt config
+├── common             // Exceptions globales, utilitaires, DTO génériques
+└── modules            // Architecture par domaine fonctionnel
+    ├── auth           // Authentification & Activation de compte
+    ├── user           // Rôles (Admin, Manager, Formateur, Apprenant)
+    ├── campaign       // Gestion des campagnes de recrutement
+    ├── candidacy      // Dépôt et suivi des candidatures
+    ├── training       // Formations, Modules, Leçons, Sessions
+    ├── session        // Planification des séances, Génération QR Code
+    ├── attendance     // Traçabilité des présences (Calcul des 80%)
+    ├── evaluation     // Quiz, Devoirs, Notes & Bulletins
+    └── certificate    // Génération PDF sécurisée via OpenPDF & Validation
+Utilisez le code avec précaution.2. Rôles et Sécurité (Spring Security + JWT)Sécurisation : Cookie httpOnly pour stocker le Refresh Token (durée 7 jours) et Access Token JWT dans l'en-tête HTTP (durée 15 min).Hachage : Utilisation obligatoire de BCrypt (force 12) pour les mots de passe.Contrôle d'accès (RBAC) : Annotation des endpoints via @PreAuthorize("hasRole('MANAGER')"), etc., conformément à la matrice des droits.Sécurité des données (Loi CIL Burkina) : Mise en place d'un système d'anonymisation ou de purge automatique après expiration de la durée de conservation légale des données personnelles (CV, pièces d'identité).3. Logique Métier Critique à coderVérification de présence : Développer un service calculant si le cumul du temps réseau d'un apprenant atteint ≥ 80% de la séance programmée.Génération du Certificat : Service intégrant OpenPDF pour dessiner le certificat incluant un code unique (UUID) et injecter l'URL publique de vérification dans le QR Code.Journalisation : Audit strict via des logs (logback/slf4j) stockés 90 jours pour les actions critiques (modifications de notes, validations de diplômes).

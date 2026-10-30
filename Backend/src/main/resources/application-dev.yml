@@ -1,0 +1,4 @@
+digilearn:
+  dev-admin:
+    email: ${DIGILEARN_DEV_ADMIN_EMAIL:admin@digilearn.local}
+    password: ${DIGILEARN_DEV_ADMIN_PASSWORD:AdminTest123456}

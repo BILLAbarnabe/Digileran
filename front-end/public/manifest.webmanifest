@@ -1,0 +1,9 @@
+{
+  "name": "Digilearn Burkina Faso",
+  "short_name": "Digilearn",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f6f7f2",
+  "theme_color": "#0b6b50",
+  "icons": [{ "src": "favicon.ico", "sizes": "any", "type": "image/x-icon" }]
+}

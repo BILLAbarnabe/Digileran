@@ -1,0 +1,8 @@
+<header class="app-header">
+  <a class="brand" routerLink="/" aria-label="Digilearn accueil"><span class="brand-mark">D</span>digilearn</a>
+  <span class="network-status" [class.offline]="!isOnline()">
+    {{ isOnline() ? 'Synchronisé' : 'Hors connexion' }}
+  </span>
+  <a class="header-action" routerLink="/auth">Se connecter</a>
+</header>
+<main class="app-main"><router-outlet /></main>

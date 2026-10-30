@@ -1,0 +1,8 @@
+import { Component } from '@angular/core';
+
+@Component({
+  standalone: true,
+  template: `<section class="page-heading"><p class="eyebrow">Espace formateur</p><h1>Préparer la prochaine session.</h1><p>Publiez vos ressources et lancez une présence en quelques secondes.</p></section><section class="workspace"><article><span class="number">01</span><h2>Mes cours</h2><p>12 modules publiés, 3 brouillons à revoir.</p><button>Gérer les cours</button></article><article class="accent"><span class="number">02</span><h2>Session du jour</h2><p>UX mobile · 14 apprenants inscrits.</p><button class="dark">Générer le QR présence</button></article></section>`,
+  styles: [`:host{display:block}.page-heading h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(2rem,5vw,4rem);margin:.5rem 0}.page-heading p:last-child{color:#63736c}.eyebrow{color:#0b6b50;font-size:.8rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase}.workspace{display:grid;gap:1rem;grid-template-columns:repeat(2,1fr);margin-top:3rem}.workspace article{border:1px solid #dfe6df;padding:2rem}.workspace .accent{background:#d6ed63;border-color:#d6ed63}.number{color:#0b6b50;font-family:'Space Grotesk',sans-serif;font-weight:700}.workspace h2{font-family:'Space Grotesk',sans-serif;font-size:2rem;margin:3rem 0 .5rem}.workspace p{color:#63736c}.workspace button{background:white;border:1px solid #0b6b50;border-radius:4px;color:#0b6b50;margin-top:2rem;padding:.75rem 1rem}.workspace .dark{background:#0b6b50;color:white}@media(max-width:650px){.workspace{grid-template-columns:1fr}}`]
+})
+export class FormateurPageComponent {}

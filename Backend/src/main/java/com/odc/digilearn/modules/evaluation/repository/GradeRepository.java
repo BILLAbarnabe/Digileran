@@ -1,0 +1,13 @@
+package com.odc.digilearn.modules.evaluation.repository;
+
+import com.odc.digilearn.modules.evaluation.domain.Grade;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
+
+public interface GradeRepository extends JpaRepository<Grade, UUID> {
+    Optional<Grade> findByAssessmentIdAndLearnerId(UUID assessmentId, UUID learnerId);
+    List<Grade> findByLearnerId(UUID learnerId);
+}
